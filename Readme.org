@@ -1,0 +1,59 @@
+* semantic-namespace/contract.function
+
+This module provides a declarative way to define system functions as semantic entities.
+Functions become part of the compound-identity registry and can be queried, inspected,
+validated, and composed using ontology tags. No DSL or macro layer is required.
+
+** Function contract
+
+A function is defined as a contract instance with five fields:
+
+- ~:function/impl~  
+  The implementation. Receives one map containing the merged semantic context.
+
+- ~:function/context~  
+  A set of compound-identity keys that must be present in the input map.  
+  If a key refers to another function identity, its ~:function/response~ is merged.
+
+- ~:function/response~  
+  A set of compound-identity keys that the function provides in its output.
+
+- ~:function.execution/before~  
+  Optional pre-handler (defaults to ~identity~).
+
+- ~:function.execution/after~  
+  Optional post-handler (defaults to ~identity~).
+
+The function identity is expressed entirely through compound-identity axes
+(e.g. ~:domain/*~, ~:operation/*~, ~:resource/*~, ~:effect/*~, ~:integration/*~,
+~:tier/*~, or any project-specific ontology keys).
+
+** Core capabilities
+
+- Semantic reasoning over functions
+- Minimal test-context derivation
+- Consumer/producer graph construction
+- Cross-domain dependency analysis
+- Semantic composition of contexts
+- Static detection of missing producers or unused outputs
+- Architectural constraints via axioms
+- Alignment with DI and endpoint modules
+- Full participation in the compound-identity registry
+
+** Design goals
+
+- Zero DSL, only data
+- Semantic first, runtime second
+- Ontology-driven composition
+- Declarative system behavior
+- Full introspection from definitions
+- Uniform identity vocabulary across modules
+
+** clojars info
+https://clojars.org/com.github.semantic-namespace/contract.function
+
+** usage
+https://github.com/semantic-namespace/contract.function/blob/main/test/semantic_namespace/contract/function_test.clj
+
+** License
+https://opensource.org/licenses/MIT

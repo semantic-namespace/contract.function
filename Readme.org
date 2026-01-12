@@ -1,3 +1,5 @@
+*superseded by https://github.com/semantic-namespace/atlas*
+
 * semantic-namespace/contract.function
 
 This module provides a declarative way to define system functions as semantic entities.
